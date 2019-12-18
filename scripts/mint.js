@@ -1,3 +1,4 @@
+require('dotenv').config()
 const HDWalletProvider = require("truffle-hdwallet-provider")
 const web3 = require('web3')
 const MNEMONIC = process.env.MNEMONIC
@@ -58,11 +59,12 @@ async function main() {
 
     if (NFT_CONTRACT_ADDRESS) {
         const nftContract = new web3Instance.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, { gasLimit: "1000000" })
-
+        console.log(JSON.stringify(NFT_ABI, null, 4));
         // Creatures issued directly to the owner.
         for (var i = 0; i < NUM_CREATURES; i++) {
-            const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
-            console.log("Minted creature. Transaction: " + result.transactionHash)
+
+            //const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+            //console.log("Minted creature. Transaction: " + result.transactionHash)
         }
     } else if (FACTORY_CONTRACT_ADDRESS) {
         const factoryContract = new web3Instance.eth.Contract(FACTORY_ABI, FACTORY_CONTRACT_ADDRESS, { gasLimit: "1000000" })
