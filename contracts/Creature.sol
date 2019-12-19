@@ -8,9 +8,9 @@ import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
  * Creature - a contract for my non-fungible creatures.
  */
 contract Creature is TradeableERC721Token {
-  constructor(address _proxyRegistryAddress) TradeableERC721Token("Creature", "OSC", _proxyRegistryAddress) public {  }
+  constructor(address _proxyRegistryAddress) TradeableERC721Token("RahulSps", "RBSPS", _proxyRegistryAddress) public {  }
 
   function baseTokenURI() public view returns (string memory) {
-    return "https://opensea-creatures-api.herokuapp.com/api/creature/";
+    return "https://opensea-demo.herokuapp.com/api/token/";
   }
 }
