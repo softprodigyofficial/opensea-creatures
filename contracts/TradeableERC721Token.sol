@@ -30,7 +30,7 @@ contract TradeableERC721Token is ERC721Full, Ownable {
     */
   function mintTo(address _to) public onlyOwner {
     uint256 newTokenId = _getNextTokenId();
-    _mint(_to, "somerandompig");
+    _mint(_to, newTokenId);
     _incrementTokenId();
   }
 
