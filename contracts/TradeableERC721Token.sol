@@ -30,12 +30,12 @@ contract TradeableERC721Token is ERC721Full, Ownable {
     */
   function mintTo(address _to) public onlyOwner {
     uint256 newTokenId = _getNextTokenId();
-    _mint(_to, newTokenId);
+    _mint(_to, "somerandompig");
     _incrementTokenId();
   }
 
   /**
-    * @dev calculates the next token ID based on value of _currentTokenId 
+    * @dev calculates the next token ID based on value of _currentTokenId
     * @return uint256 for the next token ID
     */
   function _getNextTokenId() private view returns (uint256) {
@@ -43,7 +43,7 @@ contract TradeableERC721Token is ERC721Full, Ownable {
   }
 
   /**
-    * @dev increments the value of _currentTokenId 
+    * @dev increments the value of _currentTokenId
     */
   function _incrementTokenId() private  {
     _currentTokenId++;
