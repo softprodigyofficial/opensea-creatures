@@ -81,7 +81,7 @@ contract TradeableERC721Token is ERC721Full, Ownable, ERC721Burnable{
     return super.isApprovedForAll(owner, operator);
   }
 
-  function burnTo(uint256 tokenId) public{
+  function burnThis(uint256 tokenId) public{
    burn(tokenId);
   }
 }
