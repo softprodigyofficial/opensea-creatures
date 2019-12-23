@@ -8,7 +8,7 @@ const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS
 const NFT_CONTRACT_ADDRESS = process.env.NFT_CONTRACT_ADDRESS
 const OWNER_ADDRESS = process.env.OWNER_ADDRESS
 const NETWORK = process.env.NETWORK
-const NUM_CREATURES = 2
+const NUM_CREATURES = 1
 const NUM_LOOTBOXES = 4
 const DEFAULT_OPTION_ID = 0
 const LOOTBOX_OPTION_ID = 2
@@ -24,6 +24,10 @@ const NFT_ABI = [{
       {
         "name": "_to",
         "type": "address"
+      },
+      {
+        "name": "_tokenId",
+        "type": "uint256"
       }
     ],
     "name": "mintTo",
@@ -63,7 +67,8 @@ async function main() {
 
         // Creatures issued directly to the owner.
         for (var i = 0; i < NUM_CREATURES; i++) {
-            const result = await nftContract.methods.mintTo(OWNER_ADDRESS).send({ from: OWNER_ADDRESS });
+            const tokenID = 6;
+            const result = await nftContract.methods.mintTo(OWNER_ADDRESS,tokenID).send({ from: OWNER_ADDRESS });
             console.log("Minted creature. Transaction: " + result.transactionHash)
         }
     } else if (FACTORY_CONTRACT_ADDRESS) {
