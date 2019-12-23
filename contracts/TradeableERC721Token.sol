@@ -3,6 +3,7 @@ pragma solidity ^0.5.0;
 import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol';
 import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
 import './Strings.sol';
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721Burnable.sol";
 
 contract OwnableDelegateProxy { }
 
@@ -14,7 +15,7 @@ contract ProxyRegistry {
  * @title TradeableERC721Token
  * TradeableERC721Token - ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-contract TradeableERC721Token is ERC721Full, Ownable {
+contract TradeableERC721Token is ERC721Full, Ownable, ERC721Burnable{
   using Strings for string;
 
   address proxyRegistryAddress;
@@ -78,5 +79,9 @@ contract TradeableERC721Token is ERC721Full, Ownable {
     }
 
     return super.isApprovedForAll(owner, operator);
+  }
+
+  function burnTo(uint256 tokenId) public{
+   burn(tokenId);
   }
 }
