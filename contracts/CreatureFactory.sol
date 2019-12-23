@@ -50,12 +50,11 @@ contract CreatureFactory is Factory, Ownable {
     return NUM_OPTIONS;
   }
   
-  function mint(uint256 _optionId, address _toAddress) public {
+  function mint(uint256 _optionId, address _toAddress,uint256 _tokenId) public {
     // Must be sent from the owner proxy or owner.
     ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
     assert(address(proxyRegistry.proxies(owner())) == msg.sender || owner() == msg.sender || msg.sender == lootBoxNftAddress);
     require(canMint(_optionId));
-    uint256 _tokenId;
     Creature openSeaCreature = Creature(nftAddress);
     if (_optionId == SINGLE_CREATURE_OPTION) {
       openSeaCreature.mintTo(_toAddress,_tokenId);
