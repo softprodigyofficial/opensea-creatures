@@ -37,7 +37,7 @@ async function main() {
     if (NFT_CONTRACT_ADDRESS) {
     	const nftContract = new web3Instance.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, { gasLimit: "1000000" })
     	const tokenId = 1;
-    	const result = await nftContract.methods.burnTo(tokenId).send({ from: OWNER_ADDRESS });
+    	const result = await nftContract.methods.burnThis(tokenId).send({ from: OWNER_ADDRESS });
     	console.log("Burned token " + tokenId + " Transaction: " + result.transactionHash);
     }else{
     	console.log("Please set contract address");
