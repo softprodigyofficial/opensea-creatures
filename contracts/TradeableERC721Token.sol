@@ -29,10 +29,8 @@ contract TradeableERC721Token is ERC721Full, Ownable, ERC721Burnable{
     * @dev Mints a token to an address with a tokenURI.
     * @param _to address of the future owner of the token
     */
-  function mintTo(address _to) public onlyOwner {
-    uint256 newTokenId = _getNextTokenId();
-    _mint(_to, newTokenId);
-    _incrementTokenId();
+  function mintTo(address _to,uint256 _tokenId) public onlyOwner {
+    _mint(_to, _tokenId);
   }
 
   /**
