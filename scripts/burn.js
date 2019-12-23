@@ -21,7 +21,7 @@ const NFT_ABI = [{
         "type": "uint256"
       }
     ],
-    "name": "burnTo",
+    "name": "burnThis",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
