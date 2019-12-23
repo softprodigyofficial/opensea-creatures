@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const HDWalletProvider = require("truffle-hdwallet-provider")
 const web3 = require('web3')
 const MNEMONIC = process.env.MNEMONIC
@@ -6,7 +8,7 @@ const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS
 const NFT_CONTRACT_ADDRESS = process.env.NFT_CONTRACT_ADDRESS
 const OWNER_ADDRESS = process.env.OWNER_ADDRESS
 const NETWORK = process.env.NETWORK
-const NUM_CREATURES = 12
+const NUM_CREATURES = 2
 const NUM_LOOTBOXES = 4
 const DEFAULT_OPTION_ID = 0
 const LOOTBOX_OPTION_ID = 2
